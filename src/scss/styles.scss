@@ -1,3 +1,41 @@
+// Color variables
+$color-1: #ffe1d1;
+$color-2: #ffdbca;
+$logo-text-color: #6a4a39;
+$accent-color: #ff7676;
+
 body {
-    background-color: #e1e1e1;
+  background: linear-gradient(to left, $color-1 0%, $color-2 100%);
+  font-family: "Alegreya", sans-serif;
+}
+
+/** Header **/
+.header {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  align-content: center;
+  font-weight: bold;
+  font-size: 20px;
+  &-logo {
+    align-self: center;
+    justify-self: center;
+  }
+  &-letter {
+    font-size: 30px;
+    color: $logo-text-color;
+  }
+  .menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    opacity: 0.7;
+    list-style-type: none;
+    &-item {
+      margin: 0 47px;
+      &:last-child {
+        color: $accent-color;
+        border-bottom: 4px solid #f8d1be;
+      }
+    }
+  }
 }
