@@ -4,6 +4,8 @@ $color-2: #ffdbca;
 $logo-text-color: #6a4a39;
 $accent-color: #ff7676;
 $accent-color-2: #ff8989;
+$dark-color: #333;
+$white: #fff;
 
 body {
   font-family: "Alegreya", sans-serif;
@@ -21,6 +23,13 @@ body {
   &-logo {
     align-self: center;
     justify-self: center;
+    #logo {
+      //animation
+      transition: all 0.5s ease-out;
+      &:hover {
+        transform: perspective(400px) translate3d(-10px, 0, -10px) scale(0.9);
+      }
+    }
   }
   &-letter {
     font-size: 30px;
@@ -34,9 +43,29 @@ body {
     list-style-type: none;
     &-item {
       margin: 0 47px;
+      position: relative;
+      &:hover {
+        cursor: pointer;
+      }
       &:last-child {
         color: $accent-color;
         border-bottom: 4px solid #f8d1be;
+      }
+      &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: $logo-text-color;
+        position: absolute;
+        visibility: hidden;
+        transform-origin: left;
+        transform: scale(0);
+        transition: 0.25s ease-out;
+      }
+      &:hover::after {
+        visibility: visible;
+        transform: scale(1);
       }
     }
   }
@@ -64,12 +93,13 @@ body {
         height: auto;
         align-self: end;
         justify-self: end;
+        position: absolute;
+        top: 220px;
       }
       #wave1,
       #wave3,
       #wave5 {
         opacity: 0.8;
-        visibility: hidden;
       }
       #waves {
         justify-self: end;
@@ -104,8 +134,36 @@ body {
     }
     .hero-cta_title {
       font-size: 60px;
+      line-height: 69px;
       color: #333;
       margin-bottom: 2rem;
+      font-weight: bold;
+    }
+    .hero-cta_description {
+      font-size: 20px;
+      line-height: 27px;
+      color: $dark-color;
+    }
+    .cta_btn {
+      background: $dark-color;
+      border: none;
+      padding: 9px 41px;
+      font-size: 20px;
+      font-family: "Alegreya", sans-serif;
+      text-align: center;
+      color: $white;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0px 5px 10px rgba(255, 163, 148, 0.1);
+      border-radius: 5px;
+      position: absolute;
+      bottom: -23px;
+      // Animation
+      transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+      &:hover {
+        transform: translateY(-3px);
+        opacity: 0.7;
+      }
     }
   }
 }
