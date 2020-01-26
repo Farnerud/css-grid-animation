@@ -8,6 +8,7 @@ $dark-color: #333;
 $white: #fff;
 
 body {
+  margin: 0;
   font-family: "Alegreya", sans-serif;
   overflow-x: hidden;
   background: linear-gradient(to left, $color-1 0%, $color-2 100%);
@@ -123,8 +124,26 @@ body {
     #planes {
       width: 100%;
       grid-area: sun;
-      justify-self: start;
+      justify-self: end;
       align-self: end;
+    }
+
+    .fly_right {
+      opacity: 0;
+      transform-origin: center center 0;
+      transform: translate(-500px, 300px);
+      animation: fly_right 3s ease-out 0.8s 1 forwards;
+    }
+
+    @keyframes fly_right {
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: perspective(800px) translateZ(-3em) translateX(-200px)
+          scale(2);
+        opacity: 1;
+      }
     }
     // Hero call to action
     .hero_cta {
@@ -203,10 +222,71 @@ body {
           width: 100%;
         }
       }
-    }
 
+      .fly_container {
+        max-width: 1000px;
+        width: 100%;
+        grid-column: 2/7;
+        grid-row: 2/6;
+        align-self: start;
+        justify-self: end;
+      }
+      .path {
+        visibility: hidden;
+      }
+
+      .news {
+        max-width: 256px;
+        h3 {
+          font-weight: bold;
+          line-height: 35px;
+          font-size: 30px;
+        }
+        p {
+          font-size: 20px;
+          line-height: 27px;
+          margin-top: 25px;
+        }
+      }
+
+      .news_1 {
+        grid-column: 2/3;
+        grid-row: 2/4;
+        align-self: center;
+        justify-self: center;
+      }
+
+      .news_2 {
+        grid-column: 5/7;
+        grid-row: 2/4;
+        align-self: start;
+        justify-self: center;
+        margin-top: 5.5rem;
+      }
+
+      .news_3 {
+        grid-column: 3/4;
+        grid-row: 5/7;
+        align-self: center;
+        justify-self: center;
+      }
+
+      .furniture {
+        grid-column: 4/6;
+        grid-row: 5/7;
+        align-self: center;
+        justify-self: start;
+        img {
+          width: 100%;
+        }
+      }
+    }
     .stairs {
       max-width: 300px;
+      grid-column: 1/4;
+      grid-row: 3/5;
+      align-self: center;
+      justify-self: center;
     }
   }
 }
